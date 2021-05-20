@@ -11,13 +11,6 @@
 #include "sy_process.hpp"
 #include "abst_ext.hpp"
 #include <stdio.h>
-#include <fcntl.h>
-#include <sys/types.h>
-#include <sys/uio.h>
-#include <unistd.h>
-#include <errno.h>
-#include <functional>
-#include <tuple>
 
 /*void chatterCallback(const std_msgs::String::ConstPtr& msg)
 {
