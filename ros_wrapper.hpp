@@ -77,7 +77,7 @@ ros::Publisher chatter_pub;
 		  ros::init(argc, argv, "talker");
       ros::NodeHandle n;
       chatter_pub = n.advertise<std_msgs::String>(ival1_str.str(), 1000);
-      ros::Rate loop_rate(10);
+      //ros::Rate loop_rate(10);
       //loop_rate.sleep();
       //ros::init(argc, argv, "receiver");
       
@@ -88,6 +88,10 @@ ros::Publisher chatter_pub;
     
     void prep()
     {
+      ros::Rate loop_rate(0.5);
+      while(ros::ok())
+      {
+
       
       *ival1 = iport1.read();
       std_msgs::String msg; 
@@ -95,11 +99,16 @@ ros::Publisher chatter_pub;
       ss << *ival1;
       msg.data = ss.str(); 
       ROS_INFO("%s", msg.data.c_str());
+
       chatter_pub.publish(msg);
-     
       ros::spinOnce();
-      
+      loop_rate.sleep();
       wait(SC_ZERO_TIME);
+      
+      }
+      
+      
+      
       //ival_str<<unsafe_from_abst_ext(*ival1);
 
 		  //sub = n.subscribe("receive", 1000, chatterCallback);

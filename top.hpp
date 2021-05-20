@@ -23,7 +23,7 @@ SC_MODULE(top)
         
         //SY::roswrap<std::string,std::string> *ros1 = new SY::roswrap<std::string,std::string>("ros1","sender",result, srca);
 
-        SY::make_roswrap("new","sender",result, srca);
+        SY::make_roswrap("ros","sender",result, srca);
     
         
         //SY::make_ssink("report1", report_func, result);
